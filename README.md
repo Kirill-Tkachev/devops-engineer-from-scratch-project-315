@@ -9,20 +9,57 @@
 
 ## Стек
 
-- Инструменты
+- Ansible — автоматизация настройки сервера и развёртывания приложения
+- Docker и Docker Compose — запуск контейнеров
+- PostgreSQL — база данных
+- Nginx — обратный прокси-сервер
+- Certbot и Let's Encrypt — HTTPS
+- Yandex Cloud — облачный сервер и Object Storage
+- Docker Hub — хранение Docker-образов
+- Make — запуск команд автоматизации
 
 ## Установка
-
-<!-- Опишите установку: клонирование, зависимости, переменные окружения -->
 
 ```bash
 git clone https://github.com/Kirill-Tkachev/devops-engineer-from-scratch-project-315.git
 cd devops-engineer-from-scratch-project-315
 ```
 
+### Требования
+
+- Ansible, Make и Git на локальном компьютере
+- Сервер с Ubuntu 24.04
+- SSH-доступ к серверу
+- Настроенный файл `inventory`
+- Пароль для расшифровки `secrets.yml` через Ansible Vault
+
+### Установка зависимостей Ansible
+
+```bash
+make ansible-install
+```
+
 ## Использование
 
-<!-- Добавьте примеры запуска и запись asciinema — именно это смотрит работодатель -->
+### Настройка сервера
+
+Установка и настройка Docker, Nginx, Certbot и UFW:
+
+```bash
+make playbook
+```
+
+### Развёртывание приложения
+
+```bash
+make deploy VERSION=<версия_образа>
+```
+
+При развёртывании Ansible запрашивает пароль Vault.
+
+### Работающее приложение
+
+https://hexlet-bulletins.duckdns.org
 
 ---
 

@@ -1,6 +1,28 @@
 ---
 deploy_dir: /opt/bulletins
 deploy_user: tkachev
+
 s3_bucket: hexlet-bulletins-tkachev
 s3_region: ru-central1
 s3_endpoint: https://storage.yandexcloud.net
+
+docker_users:
+  - "{{ deploy_user }}"
+
+app_domain: hexlet-bulletins.duckdns.org
+
+nginx_remove_default_vhost: true
+nginx_vhosts:
+  - listen: "80"
+    server_name: "{{ app_domain }}"
+    filename: bulletins
+    template: "{{ playbook_dir }}/nginx.conf.j2"
+
+certbot_create_if_missing: true
+certbot_create_method: standalone
+certbot_auto_renew: false
+certbot_auto_renew_user: root
+certbot_admin_email: "tkachev89@mail.ru"
+certbot_certs:
+  - domains:
+      - "{{ app_domain }}"

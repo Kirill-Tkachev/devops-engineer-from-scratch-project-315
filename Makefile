@@ -8,7 +8,7 @@ deploy:
 .PHONY: ansible-install
 
 ansible-install:
-	ansible-galaxy collection install -r requirements.yml
+	ansible-galaxy install -r requirements.yml
 
 .PHONY: playbook
 
