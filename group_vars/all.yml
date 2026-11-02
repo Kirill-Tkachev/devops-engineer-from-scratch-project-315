@@ -1,2 +1,6 @@
 ---
 deploy_dir: /opt/bulletins
+deploy_user: tkachev
+s3_bucket: hexlet-bulletins-tkachev
+s3_region: ru-central1
+s3_endpoint: https://storage.yandexcloud.net

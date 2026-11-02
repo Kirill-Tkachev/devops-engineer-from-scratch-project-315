@@ -44,4 +44,3 @@ out/
 .vault_pass
 .vault_password
 vault-password.txt
-secrets.yml

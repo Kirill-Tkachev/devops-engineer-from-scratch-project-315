@@ -9,3 +9,8 @@ deploy:
 
 ansible-install:
 	ansible-galaxy collection install -r requirements.yml
+
+.PHONY: playbook
+
+playbook:
+	ansible-playbook -i inventory playbook.yml
